@@ -1,0 +1,545 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wedding Invitation</title>
+    <style>
+        /* Reset and Basic Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #FFFFF0; /* Ivory */
+            color: #2C3E50; /* Deep Navy */
+            line-height: 1.6;
+            overflow-x: hidden; /* Prevent horizontal scroll */
+
+        }
+
+        /* Utility Classes */
+       .container {
+    width: 85%;
+    max-width: 1200px; /* Max width for larger screens */
+    margin: 0 auto;
+    padding: 1rem;
+    overflow: hidden; /* Ensure no content overflows */
+}
+
+        .text-center {
+            text-align: center;
+        }
+
+        .section-padding {
+            padding: 3rem 0;
+        }
+
+        /* Typography */
+        h1, h2, h3 {
+            font-family: 'Brush Script MT', cursive;
+            color: #FFD700; /* Gold */
+            margin-bottom: 1rem;
+        }
+
+        h1{
+          font-size: 3rem;
+        }
+
+        h2{
+          font-size: 2.25rem;
+        }
+
+        h3{
+          font-size: 1.75rem;
+        }
+
+        p {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            color: #2C3E50; /* Deep Navy */
+        }
+
+        a {
+            color: #FFD700; /* Gold */
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: #FFC0CB; /* Soft Blush */
+        }
+
+        /* Header Styles */
+        header {
+            background-color: rgba(255, 192, 203, 0.9); /* Soft Blush with transparency */
+            color: #fff;
+            padding: 1rem 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        nav ul li {
+            margin: 0 1.5rem;
+        }
+
+        nav ul li a {
+            color: #2C3E50; /* Deep Navy */
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: block; /* Ensure the link is clickable across the entire area */
+            padding: 0.5rem 1rem; /* Padding for better click area */
+            border-radius: 5px; /* Rounded corners */
+            transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
+        }
+
+        nav ul li a:hover {
+            background-color: #FFD700; /* Gold */
+            color: #fff;
+        }
+
+        /* Hero Section */
+        #hero {
+            background: url('https://images.unsplash.com/photo-1519225421980-715cb0215aed?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1MDcxMzJ8MHwxfHNlYXJjaHwxfHx3ZWRkaW5nJTIwYmFja2dyb3VuZHxlbnwwfHx8fDE3MTg5NzUzNzB8MA&ixlib=rb-4.0.3&q=80&w=1080') no-repeat center center/cover;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: #fff;
+            position: relative;
+            overflow: hidden; /* Ensure no content overflows */
+
+        }
+
+        #hero h1 {
+            font-size: 4rem;
+            margin-bottom: 0.5rem;
+            color: #fff;
+              text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Text shadow for better readability */
+
+        }
+
+        #hero p {
+            font-size: 1.5rem;
+            color: #fff;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* Text shadow for better readability */
+
+        }
+
+        /* Countdown Timer */
+        #countdown {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 1rem;
+            border-radius: 10px;
+            margin-top: 1rem;
+            display: inline-block;
+              box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+
+        }
+        #countdown span {
+    display: inline-block; /* Allows for margin/padding */
+    margin: 0 0.5rem; /* Space between numbers */
+    padding: 0.5rem 1rem; /* Padding around numbers */
+    background-color: #FFC0CB; /* Soft Blush */
+    color: #fff;
+    border-radius: 5px; /* Rounded corners */
+    min-width: 50px; /* Fixed width for consistent look */
+    text-align: center; /* Center the numbers */
+}
+
+        /* Invitation Details */
+        #invitation {
+            background-color: #F5F5F5; /* Light Gray */
+            padding: 4rem 0;
+            text-align: center;
+              border-bottom: 2px solid #FFC0CB; /* Decorative border */
+
+        }
+
+        #invitation h2 {
+            color: #FFD700; /* Gold */
+            margin-bottom: 1rem;
+        }
+
+        #invitation p {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: #2C3E50;
+        }
+
+        /* Our Story */
+        #story {
+            background-color: #fff;
+            padding: 4rem 0;
+              border-bottom: 2px solid #FFC0CB; /* Decorative border */
+
+        }
+
+        #story .story-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 2rem;
+        }
+
+        #story .story-text {
+            flex: 1;
+            text-align: left;
+        }
+
+        #story .story-image {
+            flex: 1;
+            text-align: center;
+        }
+        #story .story-image img{
+          max-width: 80%;
+          border-radius: 8px;
+        }
+
+        /* Photo Gallery */
+        #gallery {
+            background-color: #F5F5F5; /* Light Gray */
+            padding: 4rem 0;
+              border-bottom: 2px solid #FFC0CB; /* Decorative border */
+
+        }
+
+        #gallery .gallery-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        #gallery .gallery-item img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            display: block; /* Remove extra space below inline elements */
+
+        }
+
+        #gallery .gallery-item img:hover {
+            transform: scale(1.05);
+        }
+
+        /* RSVP Form */
+        #rsvp {
+            background-color: #fff;
+            padding: 4rem 0;
+              border-bottom: 2px solid #FFC0CB; /* Decorative border */
+
+        }
+
+        #rsvp-form {
+            display: flex;
+            flex-direction: column;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        #rsvp-form input, #rsvp-form select, #rsvp-form button {
+            margin-bottom: 1rem;
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        #rsvp-form button {
+            background-color: #FFC0CB; /* Soft Blush */
+            color: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            border: none;
+        }
+
+        #rsvp-form button:hover {
+            background-color: #FFD700; /* Gold */
+        }
+
+        /* Guestbook */
+        #guestbook {
+            background-color: #F5F5F5; /* Light Gray */
+            padding: 4rem 0;
+              border-bottom: 2px solid #FFC0CB; /* Decorative border */
+
+        }
+
+        #guestbook-form {
+            display: flex;
+            flex-direction: column;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        #guestbook-form textarea, #guestbook-form button {
+            margin-bottom: 1rem;
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        #guestbook-form button {
+            background-color: #FFC0CB; /* Soft Blush */
+            color: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            border: none;
+        }
+
+        #guestbook-form button:hover {
+            background-color: #FFD700; /* Gold */
+        }
+
+        .guestbook-entries {
+            margin-top: 2rem;
+        }
+
+        .guestbook-entry {
+            border-bottom: 1px solid #ddd;
+            padding: 1rem 0;
+            margin-bottom: 1rem;
+        }
+
+        .guestbook-entry p {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Additional Features (Map and Playlist) */
+        #additional-features {
+            background-color: #fff;
+            padding: 4rem 0;
+            text-align: center;
+              border-bottom: 2px solid #FFC0CB; /* Decorative border */
+
+        }
+
+        /* Footer */
+        footer {
+            background-color: #2C3E50; /* Deep Navy */
+            color: #fff;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        footer p {
+            color: #fff;
+        }
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+            }
+
+            nav ul li {
+                margin: 0.5rem 0;
+            }
+
+            #hero h1 {
+                font-size: 2.5rem;
+            }
+
+            #hero p {
+                font-size: 1.2rem;
+            }
+
+            #story .story-content {
+                flex-direction: column;
+            }
+            #countdown span {
+              margin: 0.2rem; /* Smaller margin on smaller screens */
+              padding: 0.3rem 0.6rem; /* Smaller padding */
+              min-width: 40px; /* Smaller fixed width */
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#invitation">Invitation</a></li>
+                <li><a href="#story">Our Story</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#rsvp">RSVP</a></li>
+                <li><a href="#guestbook">Guestbook</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="hero">
+        <div class="container">
+            <h1>John & Jane</h1>
+            <p>Are getting married!</p>
+            <div id="countdown">
+                <!-- Countdown timer content will be added here by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <section id="invitation" class="section-padding">
+        <div class="container">
+            <h2>Wedding Details</h2>
+            <p>Date: July 20, 2024</p>
+            <p>Venue: Beautiful Place, City, Country</p>
+            <p>Time: 4:00 PM</p>
+        </div>
+    </section>
+
+    <section id="story" class="section-padding">
+        <div class="container">
+            <h2>Our Story</h2>
+            <div class="story-content">
+                <div class="story-text">
+                    <p>
+                        We met in the most unexpected way, and it was love at first sight. Our journey has been filled with
+                        laughter, adventure, and countless memories. We are excited to start this new chapter together and
+                        share our special day with you.
+                    </p>
+                </div>
+                <div class="story-image">
+                    <img src="https://images.unsplash.com/photo-1541961017774-22349e4a1a62?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1MDcxMzJ8MHwxfHNlYXJjaHwxfHxjb3VwbGV8ZW58MHx8fHwxNzE4OTc1NDc2fDA&ixlib=rb-4.0.3&q=80&w=1080" alt="Couple">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="gallery" class="section-padding">
+        <div class="container">
+            <h2>Photo Gallery</h2>
+            <div class="gallery-container">
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1503185912284-5271ff81b9a8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1MDcxMzJ8MHwxfHNlYXJjaHwxfHxjYW5keSUyMGNvdXBsZXxlbnwwfHx8fDE3MTg5NzU1MDl8MA&ixlib=rb-4.0.3&q=80&w=1080" alt="Couple Photo 1">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1495603825482-432d7e523519?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1MDcxMzJ8MHwxfHNlYXJjaHwyfHxjYW5keSUyMGNvdXBsZXxlbnwwfHx8fDE3MTg5NzU1MDl8MA&ixlib=rb-4.0.3&q=80&w=1080" alt="Couple Photo 2">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1511914680442-f5914503811f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1MDcxMzJ8MHwxfHNlYXJjaHwzfHxjYW5keSUyMGNvdXBsZXxlbnwwfHx8fDE3MTg5NzU1MDl8MA&ixlib=rb-4.0.3&q=80&w=1080" alt="Couple Photo 3">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="rsvp" class="section-padding">
+        <div class="container">
+            <h2>RSVP</h2>
+            <form id="rsvp-form">
+                <input type="text" placeholder="Your Name" required aria-label="Your Name">
+                <select required aria-label="Attendance Confirmation">
+                    <option value="">Will you attend?</option>
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                </select>
+                <input type="text" placeholder="Meal Preference (Optional)" aria-label="Meal Preference">
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </section>
+
+    <section id="guestbook" class="section-padding">
+        <div class="container">
+            <h2>Guestbook</h2>
+            <form id="guestbook-form">
+                <textarea placeholder="Leave a message for the couple" aria-label="Leave a message"></textarea>
+                <button type="submit">Post Message</button>
+            </form>
+            <div class="guestbook-entries">
+                <!-- Guestbook entries will be added here by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <section id="additional-features" class="section-padding">
+        <div class="container">
+            <h2>Additional Features</h2>
+            <p>Map and Playlist coming soon!</p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 John & Jane's Wedding</p>
+        </div>
+    </footer>
+
+    <script>
+        // Countdown Timer
+        const weddingDate = new Date('2024-07-20T16:00:00').getTime();
+        const countdown = document.getElementById('countdown');
+
+        const updateCountdown = () => {
+            const now = new Date().getTime();
+            const distance = weddingDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            countdown.innerHTML = `
+                <span>${days}d</span>
+                <span>${hours}h</span>
+                <span>${minutes}m</span>
+                <span>${seconds}s</span>
+            `;
+
+            if (distance < 0) {
+                clearInterval(timer);
+                countdown.innerHTML = '<span>Happily Ever After!</span>';
+            }
+        };
+
+        updateCountdown();
+        const timer = setInterval(updateCountdown, 1000);
+
+        // RSVP Form Submission
+        const rsvpForm = document.getElementById('rsvp-form');
+        rsvpForm.addEventListener('submit', (event) => {
+            event.preventDefault();
+            alert('Thank you for your RSVP!');
+            rsvpForm.reset();
+        });
+
+        // Guestbook Form Submission
+        const guestbookForm = document.getElementById('guestbook-form');
+        const guestbookEntries = document.querySelector('.guestbook-entries');
+
+        guestbookForm.addEventListener('submit', (event) => {
+            event.preventDefault();
+            const message = guestbookForm.querySelector('textarea').value;
+            if (message.trim() !== '') {
+                const entry = document.createElement('div');
+                entry.classList.add('guestbook-entry');
+                entry.innerHTML = `<p>${message}</p>`;
+                guestbookEntries.appendChild(entry);
+                guestbookForm.reset();
+            }
+        });
+    </script>
+</body>
+</html>
